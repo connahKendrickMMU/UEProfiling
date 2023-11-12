@@ -4,27 +4,23 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BP_Hybrid.generated.h"
+#include "CPPOnly.generated.h"
 
 UCLASS()
-class UEPROFILING_API ABP_Hybrid : public AActor // unreal uses A for Actors S for structs
+class UEPROFILING_API ACPPOnly : public AActor
 {
 	GENERATED_BODY()
-	
 	// U us used for components
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components, meta = (AllowPrivateAccess = "true")) // these tell the editor how to work see the scipts for the character
-	class UStaticMeshComponent* CubeMesh;
-
-	
+		class UStaticMeshComponent* CubeMesh;
 
 public:	
 	// Sets default values for this actor's properties
-	ABP_Hybrid();
+	ACPPOnly();
 	// create a public variable for us to us
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = ExposedVariables)// only change the deaful value
 	int LoopCount = 500;
-
-	
+	float start = 0;
 
 protected:
 	// Called when the game starts or when spawned
