@@ -1,9 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "EngineUtils.h"
-#include "Engine/Engine.h"
-#include "CPPOnly.h"
 
+#include "CPPOnly.h"
+#include <Containers/UnrealString.h>
 // Sets default values
 ACPPOnly::ACPPOnly()
 {
@@ -13,10 +12,10 @@ ACPPOnly::ACPPOnly()
 	// create our mesh
 	CubeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CubeMesh"));
 	CubeMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndProbe); // notice we use -> as it's a pointer, QueryAndProbe is a trigger based collision
-	CubeMesh->OnComponentHit.AddDynamic(this, &ACPPOnly::OnHit); // Bind the OnHit function to the collision event 
+	//CubeMesh->OnComponentHit.AddDynamic(this, &ACPPOnly::OnHit); // Bind the OnHit function to the collision event 
 	SetRootComponent(CubeMesh);
 }
-
+/*
 // Function to handle the collision event
 void ACPPOnly::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
@@ -28,7 +27,7 @@ void ACPPOnly::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPri
 
 	// Mark the end of the trace region
 	MarkTraceRegionEnd("CPP only");
-}
+}*/
 
 
 // Called when the game starts or when spawned
@@ -47,14 +46,14 @@ void ACPPOnly::Tick(float DeltaTime)
 
 
 // our loop function
-void ABP_Hybrid::LoopTime()
+void ACPPOnly::LoopTime()
 {
 	for (int i = 0; i < LoopCount; i++)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT(FString::AppendInt(i));
+		//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT(FString::FromInt(i)));
 	}
 }
-
+/*
 // Function to mark the start of the trace region
 void ACPPOnly::MarkTraceRegionStart()
 {
@@ -67,4 +66,4 @@ void ACPPOnly::MarkTraceRegionEnd()
 {
 	// Use FScopedDurationTimer to mark the end of the trace region
 	FScopedDurationTimer TraceRegionTimer(GetWorld()->GetGameInstance(), TEXT("CPP Trace"));
-}
+}*/

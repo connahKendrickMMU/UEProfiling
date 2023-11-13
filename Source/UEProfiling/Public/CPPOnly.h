@@ -18,7 +18,7 @@ public:
 	// Sets default values for this actor's properties
 	ACPPOnly();
 	// create a public variable for us to us
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = ExposedVariables)// only change the deaful value
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = ExposedVariables)// only change the default value
 	int LoopCount = 500;
 	float start = 0;
 

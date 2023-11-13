@@ -3,6 +3,7 @@
 
 #include "BP_Hybrid.h"
 #include "Components/StaticMeshComponent.h" // notice we need add the header file
+
 // Sets default values
 ABP_Hybrid::ABP_Hybrid()
 {
@@ -35,7 +36,7 @@ void ABP_Hybrid::LoopTime()
 {
 	for (int i = 0; i < LoopCount; i++)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT(FString::AppendInt(i));
+		//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT(FString::AppendInt(i)));
 	}
 }
 
