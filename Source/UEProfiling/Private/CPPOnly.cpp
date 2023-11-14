@@ -3,6 +3,7 @@
 
 #include "CPPOnly.h"
 #include <Containers/UnrealString.h>
+
 // Sets default values
 ACPPOnly::ACPPOnly()
 {
@@ -11,30 +12,21 @@ ACPPOnly::ACPPOnly()
 
 	// create our mesh
 	CubeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CubeMesh"));
-	CubeMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndProbe); // notice we use -> as it's a pointer, QueryAndProbe is a trigger based collision
-	//CubeMesh->OnComponentHit.AddDynamic(this, &ACPPOnly::OnHit); // Bind the OnHit function to the collision event 
+	//CubeMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndProbe); // notice we use -> as it's a pointer, QueryAndProbe is a trigger based collision
+	
 	SetRootComponent(CubeMesh);
 }
-/*
-// Function to handle the collision event
-void ACPPOnly::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+
+/*void ACPPOnly::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	// Mark the start of the trace region
-	MarkTraceRegionStart("CPP only");
-
-	// Perform the loop for the trace region
 	LoopTime();
-
-	// Mark the end of the trace region
-	MarkTraceRegionEnd("CPP only");
 }*/
-
 
 // Called when the game starts or when spawned
 void ACPPOnly::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	//CubeMesh->OnComponentBeginOverlap.AddDynamic(this, &ACPPOnly::OnHit);
 }
 
 // Called every frame
@@ -50,20 +42,9 @@ void ACPPOnly::LoopTime()
 {
 	for (int i = 0; i < LoopCount; i++)
 	{
-		//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT(FString::FromInt(i)));
+		if (GEngine)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("CPP loop is: %d"), i);
+		}
 	}
 }
-/*
-// Function to mark the start of the trace region
-void ACPPOnly::MarkTraceRegionStart()
-{
-	// Use FScopedDurationTimer to mark the start of the trace region
-	FScopedDurationTimer TraceRegionTimer(GetWorld()->GetGameInstance(), TEXT("CPP Trace"));
-}
-
-// Function to mark the end of the trace region
-void ACPPOnly::MarkTraceRegionEnd()
-{
-	// Use FScopedDurationTimer to mark the end of the trace region
-	FScopedDurationTimer TraceRegionTimer(GetWorld()->GetGameInstance(), TEXT("CPP Trace"));
-}*/

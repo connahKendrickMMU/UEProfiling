@@ -22,7 +22,7 @@ public:
 	ABP_Hybrid();
 	// create a public variable for us to us
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = ExposedVariables)// only change the deaful value
-	int LoopCount = 500;
+	int LoopCount = 1000;
 
 protected:
 	// Called when the game starts or when spawned

@@ -3,7 +3,7 @@
 
 #include "BP_Hybrid.h"
 #include "Components/StaticMeshComponent.h" // notice we need add the header file
-
+#include <string>
 // Sets default values
 ABP_Hybrid::ABP_Hybrid()
 {
@@ -34,13 +34,13 @@ void ABP_Hybrid::Tick(float DeltaTime)
 // our loop function
 void ABP_Hybrid::LoopTime()
 {
+	
 	for (int i = 0; i < LoopCount; i++)
 	{
 		if (GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("hi %f", i));
+			UE_LOG(LogTemp, Warning, TEXT("Loop count: %d"), i);
 		}
-		
 	}
 }
 
