@@ -21,7 +21,7 @@ public:
 	ACPPOnly();
 	// create a public variable for us to us
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = ExposedVariables)// only change the default value
-		int LoopCount = 500;
+		int LoopCount = 5000;
 	float start;
 
 protected:

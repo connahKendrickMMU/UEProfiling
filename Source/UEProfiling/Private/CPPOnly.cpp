@@ -43,10 +43,8 @@ void ACPPOnly::Tick(float DeltaTime)
 // our loop function
 void ACPPOnly::LoopTime()
 {
-	UWorld* World = GetWorld();
-	int32 temp;
-	start = UGameplayStatics::GetRealTimeSeconds(World);
-	UGameplayStatics::GetAccurateRealTime(temp, start);
+	int32 temp
+	UGameplayStatics::GetAccurateRealTime(, start);
 	UE_LOG(LogTemp, Warning, TEXT("Start time is: %d"), start);
 	for (int i = 0; i < LoopCount; i++)
 	{
@@ -55,8 +53,8 @@ void ACPPOnly::LoopTime()
 			UE_LOG(LogTemp, Warning, TEXT("CPP loop is: %d"), i);
 		}
 	}
-	UGameplayStatics::GetAccurateRealTime(temp, start);
-	UE_LOG(LogTemp, Warning, TEXT("Start time is: %d"), start);
+	//UGameplayStatics::GetAccurateRealTime(temp, start);
+	//UE_LOG(LogTemp, Warning, TEXT("end time is: %d"), start);
 }
 
 // Called when the CubeMesh overlaps another actor
