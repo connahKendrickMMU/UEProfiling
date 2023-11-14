@@ -36,7 +36,11 @@ void ABP_Hybrid::LoopTime()
 {
 	for (int i = 0; i < LoopCount; i++)
 	{
-		//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT(FString::AppendInt(i)));
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("hi %f", i));
+		}
+		
 	}
 }
 
