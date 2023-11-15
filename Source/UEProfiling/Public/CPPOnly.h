@@ -13,8 +13,8 @@ class UEPROFILING_API ACPPOnly : public AActor
 	// U us used for components
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components, meta = (AllowPrivateAccess = "true")) // these tell the editor how to work see the scipts for the character
 		class UStaticMeshComponent* CubeMesh;
-	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components, meta = (AllowPrivateAccess = "true")) // these tell the editor how to work see the scipts for the character
-		//class UTextRender* TexhMesh;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Components, meta = (AllowPrivateAccess = "true"))
+	class UTextRenderComponent* TextRenderComponent; // Add this line
 
 public:
 	// Sets default values for this actor's properties

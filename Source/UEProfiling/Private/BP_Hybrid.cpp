@@ -3,6 +3,7 @@
 
 #include "BP_Hybrid.h"
 #include "Components/StaticMeshComponent.h" // notice we need add the header file
+#include "Components/TextRenderComponent.h"
 #include <string>
 // Sets default values
 ABP_Hybrid::ABP_Hybrid()
